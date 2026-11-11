@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join a Thunee Royale table</title>
+<meta name="description" content="You're invited to a Thunee Royale table. Open the game, or install it free.">
+<meta property="og:title" content="Join my Thunee Royale table">
+<meta property="og:description" content="Tap to sit down at the table. Thunee Royale is free on Android and iPhone.">
+<style>
+  :root { --brass: #d9aa4f; --brass-hi: #f6dc94; --ivory: #f4ead6; --muted: #b8ab93; --bg: #0b0c10; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px 16px; background: radial-gradient(120% 70% at 50% 0%, #1d222b, var(--bg) 70%); color: var(--ivory); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; }
+  main { width: min(400px, 100%); padding: 28px 22px 24px; border-radius: 26px; background: linear-gradient(160deg, #2a1d14, #120c09); border: 1px solid rgba(217, 170, 79, .55); box-shadow: 0 24px 60px rgba(0, 0, 0, .6); }
+  .eyebrow { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--brass); font-weight: 700; }
+  h1 { margin: 6px 0 4px; font: 400 40px/1 Georgia, "Times New Roman", serif; color: var(--brass-hi); }
+  p { margin: 8px 0; color: var(--muted); }
+  .code { margin: 18px auto 6px; display: inline-block; padding: 10px 22px; border-radius: 16px; border: 1px dashed rgba(246, 220, 148, .5); font: 400 40px/1 Georgia, serif; letter-spacing: .2em; color: var(--ivory); }
+  .lab { font-size: 13px; color: var(--muted); }
+  a.btn, button.btn { display: block; width: 100%; margin-top: 12px; padding: 15px; border-radius: 16px; border: 0; font: 700 17px system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+  .gold { background: linear-gradient(180deg, #fbe7ad, #e2b55a 55%, #b9822e); color: #241306; }
+  .ghost { background: rgba(255, 255, 255, .06); color: var(--ivory); border: 1px solid rgba(255, 255, 255, .15) !important; }
+  .note { font-size: 13.5px; margin-top: 16px; }
+  [hidden] { display: none !important; }
+</style></head>
+<body><main>
+  <span class="eyebrow">You're invited</span>
+  <h1>Thunee Royale</h1>
+  <p id="what">Your friend saved you a seat at the table.</p>
+  <div class="code" id="code"></div>
+  <div class="lab" id="lab"></div>
+  <a class="btn gold" id="open" href="#">Open in Thunee Royale</a>
+  <a class="btn ghost" id="play" href="#" hidden>Get it free on Google Play</a>
+  <a class="btn ghost" id="ios" href="https://apps.apple.com/app/id6824556880" hidden>Get it free on the App Store</a>
+  <button class="btn ghost" id="copy" type="button">Copy the code</button>
+  <p class="note" id="note"></p>
+</main>
+<script>
+(() => {
+  const raw = (new URLSearchParams(location.search).get('r') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+  const ua = navigator.userAgent;
+  const android = /Android/i.test(ua), ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  // F = a friend's code, T = a tournament, G = a live table, anything else is a room
+  const kind = raw.length === 6 && raw[0] === 'F' ? ['friend', 'TR-' + raw.slice(1), 'Friend code', 'Add your friend, then play together.']
+    : raw.length === 5 && raw[0] === 'T' ? ['tour', raw.slice(1), 'Tournament code', 'You are invited to a Thunee tournament.']
+    : raw.length === 5 && raw[0] === 'G' ? ['live', raw.slice(1), 'Live table code', 'Follow the scores at your table.']
+    : ['room', raw, 'Room code', 'Your friend saved you a seat at the table.'];
+  const $ = id => document.getElementById(id);
+  $('code').textContent = kind[1] || '—';
+  $('lab').textContent = kind[2];
+  $('what').textContent = kind[3];
+  const deep = 'thuneeroyale://join/' + raw;
+  // Android: the store passes "room=CODE" on to the game's first launch, so a new player lands in the room
+  const play = 'https://play.google.com/store/apps/details?id=com.thuneeroyale.app&referrer=' + encodeURIComponent('room=' + raw + '&utm_source=invite&utm_medium=' + kind[0]);
+  const intent = 'intent://join/' + raw + '#Intent;scheme=thuneeroyale;package=com.thuneeroyale.app;S.browser_fallback_url=' + encodeURIComponent(play) + ';end';
+  $('play').href = play;
+  if (android) { $('open').href = intent; $('play').hidden = false; $('note').textContent = 'No game yet? Install it from Google Play and it opens straight into this ' + (kind[0] === 'room' ? 'room' : 'invite') + '.'; }
+  else if (ios) { $('open').href = deep; $('ios').hidden = false; $('note').textContent = 'No game yet? Install it from the App Store, then open Online → Join and enter the code above.'; }
+  else { $('open').hidden = true; $('play').hidden = false; $('ios').hidden = false; $('note').textContent = 'Open this link on your phone, or enter the code in Thunee Royale → Online → Join.'; }
+  $('copy').onclick = async () => { try { await navigator.clipboard.writeText(kind[1]); $('copy').textContent = 'Copied'; } catch (e) { $('copy').textContent = kind[1]; } };
+  // straight into the game (or the store on Android) when the link is opened on a phone
+  if (raw && (android || ios)) setTimeout(() => { location.href = android ? intent : deep; }, 300);
+})();
+</script>
+</body></html>
