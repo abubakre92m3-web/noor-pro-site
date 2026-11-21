@@ -7,35 +7,53 @@
   h1 { font-family: Georgia, serif; color: #f6dc94; font-weight: 400; font-size: 34px; margin: 0 0 4px; }
   h2 { color: #f6dc94; font-size: 18px; margin: 28px 0 6px; }
   p, li { color: #e6dac4; }
+  a { color: #f6dc94; }
   .muted { color: #bfae92; font-size: 14px; }
 </style></head>
 <body><main>
   <h1>Thunee Royale Privacy Policy</h1>
-  <p class="muted">Effective 19 October 2026 (updated for v1.1 online play) · applies to the Thunee Royale app for Android, iPhone and iPad (com.thuneeroyale.app)</p>
+  <p class="muted">Updated 22 November 2026 (version 1.35: nearby play, rewarded ads, updates without the store) · applies to the Thunee Royale app for Android, iPhone and iPad (com.thuneeroyale.app)</p>
 
   <h2>The short version</h2>
-  <p>Single player, Pass &amp; play, Live table and local tournaments keep everything on your phone. Only if you use <b>Online</b> rooms or <b>share a tournament online</b> does the app store game data on Google Firebase, under an anonymous ID with no email, phone number or sign-in. There are no ads, no analytics and no tracking, and nothing is sold or shared.</p>
+  <p>Single player, Pass &amp; play, Live table and local tournaments keep everything on your phone. Online features (rooms, open games, tournaments, Royale Night, friends, ranked play and the wallet) store game data on Google Firebase. You can play online under an anonymous ID; signing in with Google or Apple is only needed for tokens and the wallet. The app can show a <b>rewarded ad</b>, only when you choose to watch one for an hour of hosting online (see <a href="#ads">Ads</a>). There are no other ads, no analytics and no tracking across apps, and nothing is sold.</p>
 
-  <h2>Online rooms and shared tournaments</h2>
-  <p>To run an online game or a shared tournament, the app uses Google Firebase (Realtime Database and Anonymous Authentication). Firebase gives your copy of the app a random anonymous ID. The following is stored:</p>
+  <h2>Online play</h2>
+  <p>Online features use Google Firebase (Realtime Database, Authentication and Cloud Functions) in Belgium (europe-west1). Firebase gives your copy of the app a random anonymous ID. Depending on what you use, the following is stored:</p>
   <ul>
-    <li><b>Online rooms:</b> the 4-letter room code, the name you type in, your anonymous ID, whether you are connected, and the cards and calls of the game. Each player's phone only receives their own cards.</li>
-    <li><b>Shared tournaments:</b> the tournament name, the player and team names you enter, fixtures and results. Anyone with the tournament code can see and update it.</li>
+    <li><b>Online rooms and open games:</b> the room code, the name you type in, your ID, whether you are connected, the game settings, and the cards and calls of the game. Each phone only receives its own cards. While an open game is waiting, other players can see the host's name and the free seats.</li>
+    <li><b>Tournaments and Royale Night:</b> the tournament name, player and team names, registrations, check-ins, fixtures, results and champions. Anyone with a tournament's code can see it.</li>
+    <li><b>Friends (optional):</b> a profile with your name (or initials only, if you choose), the face you pick and a player code, which anyone signed in can see; your friends list, requests and table invites; and, for your friends only, whether you are online and your game record.</li>
+    <li><b>Ranked play:</b> your Royale Points, rank, rating, weekly score and match results, shown on the leaderboards.</li>
+    <li><b>Reports:</b> if you report a player, your report and the game it is about.</li>
+    <li><b>Error reports:</b> when something goes wrong, the app sends a short report (what failed, the state of the game, the app version and your ID) so we can fix it. It contains no contact details.</li>
   </ul>
-  <p>This data is used only to run the game between the phones in the room or tournament. It is stored on Google's servers in Belgium (europe-west1). Anonymous IDs are deleted automatically after 30 days. You can ask for room or tournament data to be deleted using the contact below. See <a href="https://firebase.google.com/support/privacy" style="color:#f6dc94">Firebase privacy and security</a> for how Google handles it.</p>
+  <p>This data is used only to run the game. You can ask for it to be deleted using the contact below. See <a href="https://firebase.google.com/support/privacy">Firebase privacy and security</a> for how Google handles it.</p>
+
+  <h2>Accounts, tokens and purchases</h2>
+  <p>Tokens pay for hosting online and are kept in a wallet linked to an account. To use the wallet you sign in with <b>Google</b> or <b>Apple</b>; Firebase then keeps your account's identifier and the email address the provider shares (Apple can hide your real address). The wallet stores your token balance, your hosting pass, your 10-day streak and invite rewards.</p>
+  <p>Payments are handled entirely by Google Play or the App Store; we never see your card details. When you buy tokens, our server receives the store's receipt to check the purchase and add the tokens once, and keeps a record of it. You can delete your account and wallet at any time under <b>Settings → Wallet → Delete my account</b>.</p>
+
+  <h2>Play nearby</h2>
+  <p>Phones at the same table can play together over the same Wi-Fi (or a phone's hotspot) or Bluetooth. The game then goes straight between those phones and is not stored on any server. To find each other, the app asks for <b>Nearby devices</b> (Android) or <b>Local network</b> and <b>Bluetooth</b> (iPhone). On Android 11 and older, Android also requires the location permission for Bluetooth scanning; the app never uses it to find your location. The hosting pass is checked online, as for an online room.</p>
+
+  <h2 id="ads">Ads</h2>
+  <p>Hosting online needs a <b>hosting pass</b>. A token gives 24 hours; you can also choose to watch a short ad for one hour of hosting, up to three a day. Joining someone else's table and playing offline never need a pass and never show an ad. Nothing else in the app shows ads.</p>
+  <p>The ads come from <b>Google AdMob</b>. Every ad request asks for content suitable for all ages (rated G) and is <b>never personalised</b>: the app does not ask for the advertising ID on iPhone (no tracking prompt), treats every player as under the age of consent (so in the UK, EEA and Switzerland only limited ads are shown), and asks Google to restrict data processing for US state privacy laws. We also block sensitive categories such as gambling, dating, politics and religion, and ads from real-money card apps.</p>
+  <p>To show an ad and stop fraud, Google receives information from your device such as its IP address, a device or app instance identifier, coarse location, the ad shown and how it was interacted with, and crash diagnostics. See <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use its services</a>. When you finish an ad, Google tells our server so the hour can be added; we store your account ID, the time your hosting pass ends and how many ads you watched that day.</p>
+  <p>Ads never pay out like prizes: the reward is always the same, known before you watch, and has no cash value.</p>
 
   <h2>What stays on your device</h2>
-  <p>The game saves your settings (deck style, felt colour, speed, sound, your chosen name) and your record (matches, wins, Thunees, Royals, whitewashes) in the app's own storage on your phone. Apart from the name you use in an online room, this information never leaves your device. Uninstalling the app or clearing its data deletes it.</p>
+  <p>Your settings, your record and history, local tournaments, voice recordings for the table calls, and tournament reminders stay in the app's own storage on your phone. Uninstalling the app or clearing its data deletes them.</p>
 
   <h2>Internet use</h2>
-  <p>The game plays offline except for online rooms and shared tournaments (above). When your phone is online, the app also downloads its typefaces from Google Fonts. As with any web request, Google's servers receive your device's IP address to deliver the fonts. We do not receive or store this information. See <a href="https://policies.google.com/privacy" style="color:#f6dc94">Google's privacy policy</a> for how Google handles it.</p>
+  <p>Besides the online features above, the app downloads its typefaces from Google Fonts, and a few times a day it checks <b>abubakre92m3-web.github.io</b> (GitHub Pages) for a newer version of the game's screens, which it downloads and checks before using. These requests send no player data; as with any web request, the servers receive your device's IP address. See <a href="https://policies.google.com/privacy">Google's privacy policy</a> and <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
 
   <h2>Children</h2>
-  <p>The app is not directed at children under 13 and does not knowingly collect personal information from them. Online rooms only store the name a player chooses to type in.</p>
+  <p>The app is not directed at children under 13 and does not knowingly collect personal information from them. Players can show only their initials. There is no real-money play, betting or prizes, and ads are limited to content suitable for all ages and never personalised.</p>
 
   <h2>Changes</h2>
-  <p>If a future version changes what data is used, this policy will be updated before that version is released, and the app's Play Store data safety section will be updated to match.</p>
+  <p>If a future version changes what data is used, this policy will be updated before that version is released, and the app's privacy details in Google Play and the App Store will be updated to match.</p>
 
   <h2>Contact</h2>
-  <p>Questions about this policy: <span id="contact">AbubakrE92m3@gmail.com</span></p>
+  <p>Questions about this policy, or to ask for your data to be deleted: <span id="contact">AbubakrE92m3@gmail.com</span></p>
 </main></body></html>
