@@ -11,7 +11,7 @@
   <main class="container">
     <p class="crumbs"><a href="./">Noor Pro</a> · Privacy Policy</p>
     <h1>Privacy Policy</h1>
-    <p class="meta">Applies to Noor Pro for iPhone, iPad and Android · Effective 18 October 2026, updated 25 November 2026</p>
+    <p class="meta">Applies to Noor Pro for iPhone, iPad and Android · Effective 18 October 2026, updated 27 November 2026</p>
 
     <div class="highlight">
       <strong>In short:</strong> Noor Pro has no accounts, no ads, no analytics and no tracking. Your prayer log, settings,
@@ -35,7 +35,10 @@
       <li><strong>Notifications.</strong> Azan and reminder alerts are scheduled on your device. No push server is used.</li>
       <li><strong>Your own azan file.</strong> If you choose an audio file as your azan, it is copied into the app's private
         storage on your device and used only for your alerts. It is never uploaded.</li>
-      <li><strong>Motion and compass sensors.</strong> Used only to turn the Qibla compass. Readings are not stored.</li>
+      <li><strong>Motion and compass sensors.</strong> Used to turn the Qibla compass and, if you start it, by the Rak'ah
+        counter (see section 4). Qibla readings are not stored.</li>
+      <li><strong>Screen updates.</strong> The app checks our server (Microsoft Azure, UAE) for updates to its screens and
+        text, at most every few hours. The request contains no personal data, and updates are signed so only ours are used.</li>
       <li><strong>Arabic speech.</strong> The "Listen" buttons use your device's built-in text-to-speech voice.</li>
     </ul>
 
@@ -45,12 +48,13 @@
       When it does, your recitation may be processed by Apple (iPhone, iPad) or Google (Android) under their own privacy
       policies, in the same way as dictation. You can turn off microphone access at any time in your device settings.</p>
 
-    <h2>4. Camera (Rak'ah counter, optional)</h2>
-    <p>If you start the Rak'ah counter, the app asks for camera access and uses the front camera to follow your standing,
-      sujood and sitting so it can show which rak'ah you are on. Each picture is checked for body position on your device
-      (Apple Vision on iPhone and iPad, Google ML Kit running offline on Android) and dropped at once. No picture or video is
-      shown, recorded, saved or sent anywhere, and the counter works with no internet connection. The camera stops as soon as
-      the counter ends. You can turn off camera access at any time in your device settings.</p>
+    <h2>4. Motion sensors (Rak'ah counter, optional)</h2>
+    <p>If you start the Rak'ah counter, the app reads the phone's motion sensors while the phone is in your pocket, to tell
+      standing, sujood and sitting apart and keep count of your rak'ahs. The readings are used on your device and are not
+      sent anywhere. On Android, while it counts with the screen locked, the app shows a notification with the count. On
+      Android each counted prayer's movement is also kept in a small file on your phone so it can be used to improve the
+      counting; it stays on your phone and is only shared if you choose <em>Send recordings</em> in Settings. You can delete
+      these files there at any time. The app does not use the camera.</p>
 
     <h2>5. World Khatam (optional)</h2>
     <p>If you open World Khatam, the app signs in with a random anonymous ID and reads the shared progress from Google Firebase
